@@ -1,0 +1,106 @@
+<div class="header">
+
+    <br><br>
+
+    <h2>Calorific Value Calculator</h2>
+
+    <br><br>
+
+    <p>
+        Calorific Value can be calculated by using Dulong's Formula , for a fossil fuel based upon the weighted heats of combustion of the constituent elements.
+    </p>
+
+    <br>
+
+</div>
+
+<br><br>
+<h3 id="header">Find the Calorific values</h3>
+<br><br>
+
+<div class="para">
+    <p>
+        Enter the %C, %H, %O and %S present in the fuel and the app will calculate the <strong>Higher Clorific Value (Gross Calorific value)</strong>, 
+        <br>
+        <strong>Lower Calorific value (Net Calorific Value)</strong> and <strong>Efficiency of the fuel</strong> using  <strong>Dulong's formula</strong>
+    </p>
+</div>
+
+<div class="contact" id="contactpage">
+    
+    <form [formGroup]="Form" #userMsgForm="ngForm" (ngSubmit)=userMessage(userMsgForm.value)>
+        <div class="form">
+            <div class="form1">
+                <input class="inp form-control-sm" name="cper" type="text" #carbon placeholder="Enter % C" ngModel
+                    formControlName="carbon">
+
+                <input class="inp form-control-sm" name="hper" type="text" #hydrogen placeholder="Enter % H" ngModel
+                    formControlName="hydrogen">
+            </div>
+            <div class="form2">
+                <input class="inp form-control-sm" name="oper" type="text" #oxygen placeholder="Enter % O" ngModel
+                    formControlName="oxygen">
+
+                <input class="inp form-control-sm" name="sper" type="text" #sulphur placeholder="Enter % S" ngModel
+                    formControlName="sulphur">
+            </div>
+            <br>
+            <!-- <button (click)="userMessage(userMsgForm.value)" class="btn btn-secondary">SUBMIT</button> -->
+
+
+            <button [disabled]="Form.invalid" (click)="calculate(carbon.value,hydrogen.value,oxygen.value,sulphur.value)"
+                class="btn btn-secondary">CALCULATE</button>
+        </div>
+    </form>
+
+    <br><br>
+
+    <!-- <span
+        *ngIf="(cincomplete && cincomplete.touched) && (hincomplete && hincomplete.touched) && (oincomplete && oincomplete.touched) && (sincomplete && sincomplete.touched)">
+        <strong>
+            Please enter valid data
+        </strong>
+    </span> -->
+
+    <br><br>
+
+    <div *ngIf="invalidData==true">
+        Please enter valid data
+    </div>
+
+    <div *ngIf="(submit==true) && (invalidData==false)" class="alert alert-secondary alert-dismissible fade show" role="alert">
+        <strong>HCV (GCV) of fuel is {{hcv}} kcal/kg</strong>
+    </div>
+
+    <div *ngIf="(submit==true) && (invalidData==false)" class="alert alert-secondary alert-dismissible fade show" role="alert">
+        <strong>LCV (NCV) of fuel is {{lcv}} kcal/kg</strong>
+    </div>
+
+    <br><br>
+
+    
+
+    <!-- <div *ngIf="efficientFuel==true" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Based on the composition of the fuel, this is an efficient fuel</strong>
+    </div>
+
+    <div *ngIf="notEfficientFuel==true" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Based on the composition of the fuel, this is not an efficient fuel</strong>
+    </div>
+
+    <div *ngIf="cornerCase==true" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Though the composition of Hydrogen is more the corresponding HCV is greater. Hence this is an efficient fuel</strong>
+    </div> -->
+
+
+
+    <div class="greenAlert" *ngIf="efficientFuel==true">
+        <strong>Based on the composition of the fuel, this is an efficient fuel</strong>
+    </div>
+    <div class="blueAlert" *ngIf="cornerCase==true">
+        <strong>This is an efficient fuel, as HCV > 8500</strong>
+    </div>
+    <div class="redAlert" *ngIf="notEfficientFuel==true">
+        <strong>Based on the composition of the fuel, this is not an efficient fuel</strong>
+    </div>
+</div>

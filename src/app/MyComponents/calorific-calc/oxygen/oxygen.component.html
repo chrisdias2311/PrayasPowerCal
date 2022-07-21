@@ -1,0 +1,81 @@
+<div class="header">
+
+    <br><br>
+
+    <h2>Calorific Value Calculator</h2>
+
+    <br><br>
+
+    <p>
+        Calorific Value can be calculated by using Dulong's Formula , for a fossil fuel based upon the weighted heats of combustion of the constituent elements.
+
+    </p>
+
+    <br>
+
+</div>
+
+<br><br>
+<h3 id="header">Find the %O</h3>
+<br><br>
+
+<div class="para">
+    <p>
+        Enter the Higher calorific value(HCV/GCV), %C, %H and %S present in the fuel and the app will calculate the <strong>percentage of Oxygen (%O) present in the fuel</strong> using  <strong>Dulong's formula</strong> using  <strong>Dulong's formula</strong>
+    </p>
+</div>
+
+<div class="contact" id="contactpage">
+
+    <form [formGroup]="Form" #userMsgForm="ngForm" (ngSubmit)=userMessage(userMsgForm.value)>
+        <div class="form">
+            <div class="form1">
+                <input class="inp form-control-sm" name="hcv" type="text" #hcv placeholder="Enter GCV (HCV)" ngModel
+                    formControlName="hcv">
+
+                <input class="inp form-control-sm" name="hper" type="text" #hydrogen placeholder="Enter % H" ngModel
+                    formControlName="hydrogen">
+            </div>
+            <div class="form2">
+                <input class="inp form-control-sm" name="cper" type="text" #carbon placeholder="Enter % C" ngModel
+                    formControlName="carbon">
+
+                <input class="inp form-control-sm" name="sper" type="text" #sulphur placeholder="Enter % S" ngModel
+                    formControlName="sulphur">
+            </div>
+
+
+            <br>
+
+
+            <button  (click)="calculate(hcv.value,hydrogen.value,carbon.value,sulphur.value)"
+                class="btn btn-secondary">CALCULATE
+            </button>
+        </div>
+    </form>
+
+    <br><br>
+    <br><br>
+
+    <div *ngIf="invalidData==true">
+        Please enter valid data
+    </div>
+
+    <div *ngIf="(submit==true) && (invalidData==false)" class="alert alert-warning alert-dismissible fade show"
+        role="alert">
+        <strong>%O in fuel is {{oxygen}}</strong>
+    </div>
+    
+
+    <br>
+
+
+    <div class="greenAlert" *ngIf="efficientFuel==true">
+        <strong>Based on the composition of the fuel, this is an efficient fuel</strong>
+    </div>
+    <div class="blueAlert" *ngIf="cornerCase==true">
+        <strong>As the HCV > 8500, this is an efficient fuel</strong>
+    </div>
+    <div class="redAlert" *ngIf="notEfficientFuel==true">
+        <strong>Based on the composition of the fuel, this is not an efficient fuel</strong>
+    </div>

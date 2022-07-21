@@ -1,0 +1,32 @@
+img{
+    position: relative;
+    width: 100%;
+}
+
+.header{
+    text-align: center;
+    color: #d9c885;
+    background-color: #212529;
+    margin-top: 2px solid white;
+    margin-bottom: 0;
+}
+#header{
+    text-align: center;
+    color: #ffffff;
+    margin-top: 2px solid white;
+    margin-bottom: 0;
+    padding-top: 3%;
+}
+
+.about{
+    background-color: #212529;
+    padding: 15px;
+}
+.paragraphs{
+    padding: 50px 20% 50px 20%;
+    background-color: black;
+}
+.information{
+    color: white;
+    text-align: center;
+}

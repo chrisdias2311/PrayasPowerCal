@@ -1,0 +1,169 @@
+<div class="header">
+
+    <br><br>
+
+    <h2>Ultimate Analysis</h2>
+
+    <br>
+
+    <p>
+        Ultimate analysis is the technique used to analyze the chemical composition of coal.
+    </p>
+
+    <br>
+
+</div>
+
+<div class="contact" id="contactpage">
+    <br>
+
+    <em>
+        <strong>Please NOTE:</strong>
+        Enter 0 for fields that are to be kept null
+    </em>
+
+    <br><br><br>
+
+    <form [formGroup]="Form" #userMsgForm="ngForm" (ngSubmit)=userMessage(userMsgForm.value)>
+        <div class="form">
+            <div class="form2">
+                <input class="inp form-control-sm" name="w4" type="text" #coal placeholder="Enter Weight of Coal taken"
+                    ngModel formControlName="coal">
+            </div>
+            <div class="form1">
+                <input class="inp form-control-sm" name="koh" type="text" #koh
+                    placeholder="Increase in wt. of KOH / Wt. of Co2 formed" ngModel formControlName="koh">
+
+                <input class="inp form-control-sm" name="cacl" type="text" #cacl
+                    placeholder="Increase in wt. of CaCl2 tube / Wt. of H20 formed" ngModel formControlName="cacl">
+            </div>
+            <div class="form2">
+                <input class="inp form-control-sm" name="w3" type="text" #vol placeholder="Volume of acid" ngModel
+                    formControlName="w3">
+
+                <input class="inp form-control-sm" name="w4" type="text" #nor placeholder="Normality of acid" ngModel
+                    formControlName="w4">
+            </div>
+            <div class="form2">
+                <input class="inp form-control-sm" name="w3" type="text" #baso4 placeholder="Wt. of BaSO4" ngModel
+                    formControlName="baso4">
+
+
+            </div>
+
+            <br>
+
+
+            <button class="btn btn-secondary"
+                (click)="calculate(koh.value,cacl.value,vol.value,nor.value,baso4.value,coal.value)">
+                CALCULATE
+            </button>
+
+
+
+            <br><br><br>
+
+
+
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <h4 class="ans">Name of compound</h4>
+                        </th>
+                        <th>
+                            <h4 class="ans">Amount</h4>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="row">Weight of Coal taken</th>
+                        <td>{{woc}} gm</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Increase in weight of KOH
+                        </th>
+                        <td>{{kohc}} gm</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            Weight of CO2 Formed
+                        </th>
+                        <td>{{kohc}} gm</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Increase in weight of CaCl2 tube
+                        </th>
+                        <td>{{caclc}} gm</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            Weight of H2O formed
+                        </th>
+                        <td>{{caclc}} gm</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Volume of acid</th>
+                        <td>{{volc}} ml</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Normality of acid</th>
+                        <td>{{norc}} N</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Weight of BaSO4</th>
+                        <td>{{baso4c}} gm</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h4 class="ans">Percentage of compound</h4>
+                        </th>
+                        <th>
+                            <h4 class="ans">%</h4>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="ans" scope="row">% of C</th>
+                        <th class="ans">{{carbon}}%</th>
+                    </tr>
+                    <tr>
+                        <th class="ans" scope="row">% of H</th>
+                        <th class="ans">{{hydrogen}}%</th>
+                    </tr>
+                    <tr>
+                        <th class="ans" scope="row">% of N</th>
+                        <th class="ans">{{nitrogen}}%</th>
+                    </tr>
+                    <tr>
+                        <th class="ans" scope="row">% of S</th>
+                        <th class="ans">{{sulphur}}%</th>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+            <div *ngIf="data==true" class="alert alert-warning alert-dismissible fade show" role="alert">
+                <h6>The percentage of Carbon is <strong>{{carbon}}%</strong></h6>
+            </div>
+            <div *ngIf="data==true" class="alert alert-warning alert-dismissible fade show" role="alert">
+                <h6>The percentage of Hydrogen (%H) is <strong>{{hydrogen}}%</strong> </h6>
+            </div>
+            <div *ngIf="data==true" class="alert alert-warning alert-dismissible fade show" role="alert">
+                <h6>The percentage of Nitrogen is <strong>{{nitrogen}}%</strong></h6>
+            </div>
+            <div *ngIf="data==true" class="alert alert-warning alert-dismissible fade show" role="alert">
+                <h6>The percentage of Sulphur (%S) is <strong>{{sulphur}}%</strong></h6>
+            </div>
+
+        </div>
+    </form>
+
+    <br><br>
+
+</div>

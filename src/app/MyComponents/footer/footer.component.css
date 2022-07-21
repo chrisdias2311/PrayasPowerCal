@@ -1,0 +1,32 @@
+.background{
+    color: rgb(78, 143, 200);
+}
+p{
+    color: aliceblue;
+}.text-footer{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.footer{
+    text-align: center;
+    padding: 30px 10px 5px 10px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+}
+.app-footer{
+    text-align: center;
+    padding: 5px 10px 12px 10px;
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(158, 157, 157);
+}
+
+p{
+    color: beige;
+}
+.chris{
+    text-align: center;
+    padding: 5px 20px 25px 2px;
+}

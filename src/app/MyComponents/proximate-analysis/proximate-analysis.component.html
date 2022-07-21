@@ -1,0 +1,133 @@
+<div class="header">
+
+    <br><br>
+
+    <h2>Proximate Analysis</h2>
+
+    <br>
+
+    <p>
+        Proximate analysis is the technique used to analyze the moisture content, content of volatile matter, ash content and content of fixed carbon of coal.
+    </p>
+    <br>
+
+</div>
+
+<div class="contact" id="contactpage">
+
+    <div class="para">
+        <br><br><br>
+        <p>
+            Enter the weight of coal taken, Weight of coal after moisture loss, weight of coal after volatile matter loss, weight of residue, and the app will calculate the <strong>%Moisture</strong>,<strong>%Volatile matter</strong>, <strong>% Ash</strong> and <strong>%Fixed Carbon</strong>
+        </p>
+        <br><br>
+    </div>
+    
+    <form [formGroup]="Form" #userMsgForm="ngForm" (ngSubmit)=userMessage(userMsgForm.value)>
+        <div class="form">
+            <div class="form1">
+                <input class="inp form-control-sm" name="w1" type="text" #w1 placeholder="Weight of coal taken (W1)" ngModel
+                    formControlName="w2">
+
+                <input class="inp form-control-sm" name="w2" type="text" #w2 placeholder="Weight of coal after loss of moisture (W2)" ngModel
+                    formControlName="w2">
+            </div>
+            <div class="form2">
+                <input class="inp form-control-sm" name="w3" type="text" #w3 placeholder="Weight of coal after loss of volatile matter (W3)" ngModel
+                    formControlName="w3">
+
+                <input class="inp form-control-sm" name="w4" type="text" #w4 placeholder="Weight of ash left (W4)" ngModel
+                    formControlName="w4">
+            </div>
+            <br>
+            <!-- <button (click)="userMessage(userMsgForm.value)" class="btn btn-secondary">SUBMIT</button> -->
+
+
+            <button (click)="calculate(w1.value,w2.value,w3.value,w4.value)"
+                class="btn btn-secondary">CALCULATE
+            </button>
+
+        </div>
+    </form>
+
+    <br><br>
+
+
+
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="row"><h4 class="ans">Weight of compound</h4></th>
+                <th><h4 class="ans">Weight in gm</h4></th>
+            </tr>
+            <tr>
+                <th scope="row">Weight of Coal taken (W1)</th>
+                <td>{{woc}} gm</td>
+            </tr>
+            <tr>
+                <th scope="row">Weight of coal after loss of moisture (W2)
+                </th>
+                <td>{{wm}} gm</td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Weight of coal after loss of volatile matter (W3)
+                </th>
+                <td>{{wvm}} gm</td>
+            </tr>
+            <tr>
+                <th scope="row">Weight of ash left (W4)
+                </th>
+                <td>{{wa}} gm</td>
+            </tr>
+            <tr>
+                <th scope="row"><h4 class="ans">Percentage of compound</h4></th>
+                <th><h4 class="ans"> %</h4></th>
+            </tr>
+            
+            <tr>
+                <th class="ans" scope="row">% of Moisture</th>
+                <th class="ans">{{moisture}}%</th>
+            </tr>
+            <tr>
+                <th class="ans" scope="row">% of Volatile matter</th>
+                <th class="ans">{{vm}}%</th>
+            </tr>
+            <tr>
+                <th class="ans" scope="row">% of Ash</th>
+                <th class="ans">{{ash}}%</th>
+            </tr>
+            <tr>
+                <th class="ans" scope="row">% of Fixed Carbon</th>
+                <th class="ans">{{fc}}%</th>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <br><br>
+
+    <!-- <span
+        *ngIf="(cincomplete && cincomplete.touched) && (hincomplete && hincomplete.touched) && (oincomplete && oincomplete.touched) && (sincomplete && sincomplete.touched)">
+        <strong>
+            Please enter valid data
+        </strong>
+    </span> -->
+
+
+    <div *ngIf="this.moistureData==true"  class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>The percentage of moisture is {{moisture}}%</strong>
+    </div>
+    <div *ngIf="this.vmData==true"  class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>The percentage of Volatile matter is {{vm}}%</strong>
+    </div>
+    <div *ngIf="this.ashData==true"  class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>The percentage of Ash is {{ash}}%</strong>
+    </div>
+    <div *ngIf="this.fcData==true"  class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>The percentage of Fixed Carbon is {{fc}}%</strong>
+    </div>
+
+</div>

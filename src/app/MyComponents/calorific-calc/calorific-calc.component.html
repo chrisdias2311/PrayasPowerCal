@@ -1,0 +1,73 @@
+<div class="header">
+
+    <br><br>
+
+    <h2>Calorific Value Calculator</h2>
+
+    <br><br>
+
+    <p>
+        Calorific Value can be calculated by using Dulong's Formula , for a fossil fuel based upon the weighted heats of combustion of the constituent elements.
+    </p>
+
+    <br><br>
+
+</div>
+
+
+
+<div class="contact" id="buttons">
+    <a routerLink="calorific-value" class="btn btn-secondary btn-sm">Find the Calorific Values</a>
+    <a routerLink="carbon" class="btn btn-secondary btn-sm">Find the %C</a>
+    <a routerLink="hydrogen" class="btn btn-secondary btn-sm">Find the %H</a>
+    <a routerLink="oxygen" class="btn btn-secondary btn-sm">Find the %O</a>
+    <a routerLink="sulphur" class="btn btn-secondary btn-sm">Find the %S</a>
+</div>
+
+
+<br><br><br><br><br>
+
+
+<!-- <div class="contact" id="contactpage">
+    <form [formGroup]="Form" #userMsgForm="ngForm" (ngSubmit)=userMessage(userMsgForm.value)>
+        <div class="form">
+            <div class="form1">
+                <input class="inp form-control-sm" name="cper" type="text" #carbon placeholder="Enter % C" ngModel
+                    formControlName="carbon">
+
+                <input class="inp form-control-sm" name="hper" type="text" #hydrogen placeholder="Enter % H" ngModel
+                    formControlName="hydrogen">
+            </div>
+            <div class="form2">
+                <input class="inp form-control-sm" name="oper" type="text" #oxygen placeholder="Enter % O" ngModel
+                    formControlName="oxygen">
+
+                <input class="inp form-control-sm" name="sper" type="text" #sulphur placeholder="Enter % S" ngModel
+                    formControlName="sulphur">
+            </div>
+            <br>
+
+
+            <button [disabled]="Form.invalid" (click)="calculate(carbon.value,hydrogen.value,oxygen.value,sulphur.value)"
+                class="btn btn-secondary">CALCULATE</button>
+        </div>
+    </form>
+
+    <br><br>
+
+
+    <br><br>
+
+    <div *ngIf="invalidData==true">
+        Please enter valid data
+    </div>
+
+    <div *ngIf="(submit==true) && (invalidData==false)" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>HCV (GCV) is {{hcv}}</strong>
+    </div>
+
+    <div *ngIf="(submit==true) && (invalidData==false)" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>LCV (NCV) is {{lcv}}</strong>
+    </div>
+
+</div> -->
